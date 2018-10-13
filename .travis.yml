@@ -4,6 +4,8 @@ dotnet: 2.1.403
 solution: TrIdent.sln
 script:
    - ls -R
+   - export kd_dir=$(readlink -f .)
+   - echo $kd_dir
    - source ./do/.vars
    - bash ./do/showname
    - dotnet build
