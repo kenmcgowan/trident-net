@@ -3,6 +3,7 @@ mono: none
 dotnet: 2.1.403
 solution: TrIdent.sln
 script:
+   - source ./do/.vars
    - dotnet build
    - cd TrIdent.Specifications
    - dotnet test

@@ -2,8 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-
-    <IsPackable>false</IsPackable>
+    <PackageId>$(kd_module).Specifications</PackageId>
+    <Version>$(kd_version_major).$(kd_version_minor).$(kd_version_patch)$(kd_version_suffix)</Version>
+    <AssemblyVersion>$(kd_version_major).$(kd_version_minor).$(kd_version_build).$(kd_version_patch)</AssemblyVersion>
+    <AssemblyInformationalVersion>$(kd_version_major).$(kd_version_minor).$(kd_version_patch)$(kd_version_suffix)</AssemblyInformationalVersion>
+    <Authors>Ken McGowan</Authors>
+    <Company>kenmcgowan.com</Company>
   </PropertyGroup>
 
   <ItemGroup>

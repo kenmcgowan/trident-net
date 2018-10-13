@@ -1,0 +1,5 @@
+source ./do/.vars
+let kd_version_minor++
+echo $kd_version_minor > .version/minor
+echo 0 > .version/patch
+echo 0 > .version/build

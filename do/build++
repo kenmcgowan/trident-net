@@ -1,0 +1,3 @@
+source ./do/.vars
+let kd_version_build++
+echo $kd_version_build > .version/build
