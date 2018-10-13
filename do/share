@@ -1,7 +1,5 @@
+bash ./do/build++
 source ./do/.vars
-let kd_version_build++
-echo $kd_version_build > .version/build
-export kd_version_suffix="-alpha.$kd_version_build"
 
 echo ################################################################################
 echo $kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix

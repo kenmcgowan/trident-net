@@ -1,6 +1,6 @@
 source ./do/.vars
 let kd_version_major++
-echo $kd_version_major > .version/major
-echo 0 > .version/minor
-echo 0 > .version/patch
-echo 0 > .version/build
+echo -n $kd_version_major > .version/major
+echo -n 0 > .version/minor
+echo -n 0 > .version/patch
+echo -n 0 > .version/build
