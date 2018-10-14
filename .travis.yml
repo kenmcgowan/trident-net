@@ -5,6 +5,6 @@ solution: TrIdent.sln
 script:
    - source ./do/.vars
    - echo "$kd_module.$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix"
-   - dotnet build
+   - dotnet build -p:Version=$kd_module.$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix -p:AssemblyInformationalVersion=$kd_module.$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix -p:AssemblyVersion=$kd_module.$kd_version_major.$kd_version_minor.$kd_version_build.$kd_version_patch
    - cd TrIdent.Specifications
    - dotnet test
