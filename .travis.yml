@@ -2,9 +2,10 @@ language: csharp
 mono: none
 dotnet: 2.1.403
 solution: TrIdent.sln
-script:
+before_script:
    - source ./do/.vars
-   - bash ./do/showname
+   - echo $kd_module.$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix
+script:
    - dotnet build
    - cd TrIdent.Specifications
    - dotnet test
