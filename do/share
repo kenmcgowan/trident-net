@@ -1,5 +1,5 @@
 bash ./do/build++
-source ./do/.vars
+source ./do/.env
 
 echo ################################################################################
 echo $kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix
