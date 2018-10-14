@@ -4,7 +4,7 @@ dotnet: 2.1.403
 solution: TrIdent.sln
 before_script:
    - source ./do/.vars
-   - echo $kd_module.$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix
+   - echo "$kd_module.$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix"
 script:
    - dotnet build
    - cd TrIdent.Specifications
