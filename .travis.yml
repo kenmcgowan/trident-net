@@ -3,8 +3,15 @@ mono: none
 dotnet: 2.1.403
 solution: TrIdent.sln
 script:
-   - source ./do/.vars
-   - echo "$kd_module.$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix"
-   - dotnet build -p:Version=$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix -p:AssemblyInformationalVersion=$kd_version_major.$kd_version_minor.$kd_version_patch$kd_version_suffix -p:AssemblyVersion=$kd_version_major.$kd_version_minor.$kd_version_build.$kd_version_patch
-   - cd TrIdent.Specifications
-   - dotnet test
+  - export kd_module=$(cat .info/module | xargs)
+  - export kd_project=$(cat .info/project | xargs)
+  - export kd_version_major=$(cat .version/major | xargs)
+  - export kd_version_minor=$(cat .version/minor | xargs)
+  - export kd_version_patch=$(cat .version/patch | xargs)
+  - export kd_version_build=$(cat .version/build | xargs)
+  - export kd_version_suffix=-alpha.$kd_version_build
+  - echo "$kd_version_major.$kd_version_minor.$kd_version_patch.$kd_version_build"
+  - dotnet build
+  - cd TrIdent.Specifications
+  - dotnet test
+  
