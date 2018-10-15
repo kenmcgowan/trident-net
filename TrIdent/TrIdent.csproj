@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <PackageId>$(kd_module)</PackageId>
-    <Version>$(kd_version_major).$(kd_version_minor).$(kd_version_patch)$(kd_version_suffix)</Version>
-    <AssemblyVersion>$(kd_version_major).$(kd_version_minor).$(kd_version_build).$(kd_version_patch)</AssemblyVersion>
-    <AssemblyInformationalVersion>$(kd_version_major).$(kd_version_minor).$(kd_version_patch)$(kd_version_suffix)</AssemblyInformationalVersion>
+    <Title>TrIdent</Title>
+    <PackageId>TrIdent</PackageId>
     <Authors>Ken McGowan</Authors>
     <Company>kenmcgowan.com</Company>
   </PropertyGroup>
+
+  <Import Project="..\metadata.generated.csproj" Condition="Exists('..\metadata.generated.csproj')" />
 
 </Project>
