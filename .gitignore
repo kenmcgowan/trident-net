@@ -5,6 +5,9 @@
 
 .vscode/
 
+# Ignore the file generated to dynamically update version information
+metadata.generated.csproj
+
 # User-specific files
 *.suo
 *.user
