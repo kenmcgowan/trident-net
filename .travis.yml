@@ -11,9 +11,9 @@ env:
     kd_version_build=$TRAVIS_BUILD_NUMBER
     kd_version_suffix=-alpha.$kd_version_build
     kd_is_tag_build=$( if [[ $TRAVIS_BRANCH == $TRAVIS_TAG ]]; then echo -n "yes"; else echo -n "no"; fi; )
-    kd_is_beta_build=$( if [[ ( $kd_is_tag_build == "yes" ) && ( $TRAVIS_BRANCH == "develop" ) ]]; then echo -n "yes"; else echo -n "no"; fi; )
-    kd_is_release_build=$( if [[ ( $kd_is_beta_build == "yes" ) && ( $TRAVIS_BRANCH == "master" ) ]]; then echo -n "yes"; else echo -n "no"; fi; )
-    kd_is_alpha_build=$( if [[ ( $kd_is_tag_build == "no" ) && ( $kd_is_beta_build == "no" ) && ( $kd_is_release_build == "no" ) ]]); then echo -n "yes"; else echo -n "no"; fi; )
+    kd_is_beta_build=$( if [[ $kd_is_tag_build == "no" && $TRAVIS_BRANCH == "develop" ]]; then echo -n "yes"; else echo -n "no"; fi; )
+    kd_is_release_build=$( if [[ $kd_is_tag_build == "no" && $kd_is_beta_build == "no" && $TRAVIS_BRANCH == "master" ]]; then echo -n "yes"; else echo -n "no"; fi; )
+    kd_is_alpha_build=$( if [[ $kd_is_tag_build == "no" && $kd_is_beta_build == "no" && $kd_is_release_build == "no" ]]; then echo -n "yes"; else echo -n "no"; fi; )
 jobs:
   include:
     - stage: Info
