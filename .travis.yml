@@ -13,6 +13,6 @@ env:
 jobs:
   include:
     - stage: Build
-    - script: ./.ci/build
+      script: ./.ci/build
     - stage: Test
-    - script: ./.ci/test
+      script: ./.ci/test
