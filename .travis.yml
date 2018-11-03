@@ -12,12 +12,11 @@ env:
     kd_version_suffix=-alpha.$kd_version_build
 jobs:
   include:
-    - stage Build
-    script:
-      - echo "Building $kd_project version $kd_version_major.$kd_version_minor.$kd_version_patch.$kd_version_build"
-      - bash ./do/generatemetadata
-      - dotnet build $kd_module/$kd_module.csproj
-      - dotnet build $kd_module.Specifications/$kd_module.Specifications.csproj
-    - stage Test
-    script:
-      - dotnet test $kd_module.Specifications/$kd_module.Specifications.csproj
+    - stage: Build
+    - script:
+        - echo "Building $kd_project version $kd_version_major.$kd_version_minor.$kd_version_patch.$kd_version_build"
+        - bash ./do/generatemetadata
+        - dotnet build $kd_module/$kd_module.csproj
+        - dotnet build $kd_module.Specifications/$kd_module.Specifications.csproj
+    - stage: Test
+    - script: dotnet test $kd_module.Specifications/$kd_module.Specifications.csproj
