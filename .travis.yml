@@ -3,11 +3,11 @@ mono: none
 dotnet: 2.1.403
 env:
   global:
-    kd_module=$(cat .metadata/module | xargs)
-    kd_project=$(cat .metadata/project | xargs)
-    kd_version_major=$(cat .metadata/version_major | xargs)
-    kd_version_minor=$(cat .metadata/version_minor | xargs)
-    kd_version_patch=$(cat .metadata/version_patch | xargs)
+    kd_module=$(cat .metadata/module | tr -d '\r\n\t ')
+    kd_project=$(cat .metadata/project | tr -d '\r\n\t ')
+    kd_version_major=$(cat .metadata/version_major | tr -d '\r\n\t ')
+    kd_version_minor=$(cat .metadata/version_minor | tr -d '\r\n\t ')
+    kd_version_patch=$(cat .metadata/version_patch | tr -d '\r\n\t ')
     kd_version_build=$TRAVIS_BUILD_NUMBER
     kd_version_suffix=-alpha.$kd_version_build
 script:
