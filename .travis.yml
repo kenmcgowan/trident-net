@@ -10,9 +10,14 @@ env:
     kd_version_patch=$(cat .metadata/version_patch | tr -d '\r\n\t ')
     kd_version_build=$TRAVIS_BUILD_NUMBER
     kd_version_suffix=-alpha.$kd_version_build
-script:
-  - echo "Building $kd_project version $kd_version_major.$kd_version_minor.$kd_version_patch.$kd_version_build"
-  - bash ./do/generatemetadata
-  - dotnet build $kd_module/$kd_module.csproj
-  - dotnet build $kd_module.Specifications/$kd_module.Specifications.csproj
-  - dotnet test $kd_module.Specifications/$kd_module.Specifications.csproj
+jobs:
+  include:
+    - stage Build
+    script:
+      - echo "Building $kd_project version $kd_version_major.$kd_version_minor.$kd_version_patch.$kd_version_build"
+      - bash ./do/generatemetadata
+      - dotnet build $kd_module/$kd_module.csproj
+      - dotnet build $kd_module.Specifications/$kd_module.Specifications.csproj
+    - stage Test
+    script:
+      - dotnet test $kd_module.Specifications/$kd_module.Specifications.csproj
