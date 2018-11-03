@@ -10,8 +10,18 @@ env:
     kd_version_patch=$(cat .metadata/version_patch | tr -d '\r\n\t ')
     kd_version_build=$TRAVIS_BUILD_NUMBER
     kd_version_suffix=-alpha.$kd_version_build
+    kd_is_tag_build=$( if [[ $TRAVIS_BRANCH == $TRAVIS_TAG ]]; then echo -n 1; else echo -n 0; fi; )
+    kd_is_beta_build=$( if [[ ( $kd_is_tag_build == 0 ) && ( $TRAVIS_BRANCH == "develop" ) ]]; then echo -n 1; else echo -n 0; fi; )
+    kd_is_release_build=$( if [[ ( $kd_is_beta_build == 0 ) && ( $TRAVIS_BRANCH == "master" ) ]]; then echo -n 1; else echo -n 0; fi; )
+    kd_is_alpha_build=$( if [[ ( $kd_is_tag_build == 0 ) && ( $kd_is_beta_build == 0 ) && ( $kd_is_release_build == 0 ) ]]); then echo 1; else echo -n 0; fi; )
 jobs:
   include:
+    - stage: Info
+      script:
+      - echo "Is Tag Build     => %kd_is_tag_build"
+      - echo "Is Alpha Build   => %kd_is_alpha_build"
+      - echo "Is Beta Build    => %kd_is_beta_build"
+      - echo "Is Release Build => %kd_is_release_build"
     - stage: Build
       script: ./.ci/build
     - stage: Test
