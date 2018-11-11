@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Building $kd_project version $kd_version_major.$kd_version_minor.$kd_version_patch.$kd_version_build"
+echo "Running $kd_build_type build of $kd_project version $kd_version_major.$kd_version_minor.$kd_version_patch.$kd_version_build"
 bash ./do/generatemetadata
 dotnet build $kd_module/$kd_module.csproj
 dotnet build $kd_module.Specifications/$kd_module.Specifications.csproj
