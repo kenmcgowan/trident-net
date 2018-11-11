@@ -6,4 +6,6 @@ echo "Packaging and publishing $kd_build_type build of $kd_project version $kd_v
 # dotnet build $kd_module.Specifications/$kd_module.Specifications.csproj
 dotnet pack $kd_module/$kd_module.csproj --no-build
 dotnet pack $kd_module.Specifications/$kd_module.Specifications.csproj --no-build
+ls -R $kd_module
+ls -R $kd_module.Specifications
 # dotnet nuget push --api-key $kd_package_repo_api_key
