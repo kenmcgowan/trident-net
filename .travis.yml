@@ -20,6 +20,6 @@ jobs:
   include:
     - stage: Build and Unit Test
       script:
-      - echo "$kd_build_type build:"; echo "Is Tag Build     => $kd_is_tag_build"; echo "Is Dev Build => $kd_is_dev_build"; echo "Is Alpha Build   => $kd_is_alpha_build"; echo "Is Beta Build    => $kd_is_beta_build"; echo "Is Release Build => $kd_is_release_build"
+      - echo "$kd_build_type build:"; echo "Is Tag Build     => $kd_is_tag_build"; echo "Is Dev Build     => $kd_is_dev_build"; echo "Is Alpha Build   => $kd_is_alpha_build"; echo "Is Beta Build    => $kd_is_beta_build"; echo "Is Release Build => $kd_is_release_build"
       - ./.ci/build
       - ./.ci/test
