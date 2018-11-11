@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Packaging and publishing $kd_build_type build of $kd_project version $kd_version_major.$kd_version_minor.$kd_version_patch.$kd_version_build"
+# For now, relying on a preexisting build.
+# bash ./do/generatemetadata
+# dotnet build $kd_module/$kd_module.csproj
+# dotnet build $kd_module.Specifications/$kd_module.Specifications.csproj
+dotnet pack $kd_module/$kd_module.csproj --no-build
+dotnet pack $kd_module.Specifications/$kd_module.Specifications.csproj --no-build
+# dotnet nuget push --api-key $kd_package_repo_api_key
