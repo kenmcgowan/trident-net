@@ -7,9 +7,7 @@ echo "Packaging and publishing $kd_build_type build of $kd_project version $kd_p
 bash ./do/generatemetadata
 ls
 cat metadata.generated.csproj
-bash ./do/generatemetadata
-ls
-cat metadata.generated.csproj
+ls -l
 cd $kd_module
 dotnet pack $kd_module.csproj --no-build --output .. --verbosity normal
 cd ../$kd_module.Specifications
