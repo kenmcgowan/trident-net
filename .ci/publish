@@ -4,6 +4,7 @@ echo "Packaging and publishing $kd_build_type build of $kd_project version $kd_p
 # bash ./do/generatemetadata
 # dotnet build $kd_module/$kd_module.csproj
 # dotnet build $kd_module.Specifications/$kd_module.Specifications.csproj
+bash ./do/generatemetadata
 dotnet pack $kd_module/$kd_module.csproj --no-build --output .. --verbosity normal
 dotnet pack $kd_module.Specifications/$kd_module.Specifications.csproj --no-build --output .. --verbosity normal
 ls
